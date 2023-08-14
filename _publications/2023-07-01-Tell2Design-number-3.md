@@ -1,8 +1,9 @@
 ---
 title: "Tell2Design: A Dataset for Language-Guided Floor Plan Generation"
 collection: publications
+permalink: /publication/2023-07-01-Tell2Design-number-3
 date: 2023-07-01
-venue: 'ACL2023 Long Paper'
+venue: 'ACL 2023 Long Paper'
 paperurl: 'https://aclanthology.org/2023.acl-long.820/'
 ---
 
