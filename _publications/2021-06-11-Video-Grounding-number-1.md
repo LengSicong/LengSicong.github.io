@@ -7,4 +7,6 @@ venue: 'CVPR 2021 Long Paper'
 paperurl: 'https://openaccess.thecvf.com/content/CVPR2021/html/Nan_Interventional_Video_Grounding_With_Dual_Contrastive_Learning_CVPR_2021_paper.html'
 ---
 
+Authors: Guoshun Nan, Rui Qiao, Yao Xiao, Jun Liu, **Sicong Leng**, Hao Zhang, Wei Lu
+
 [Download paper here](https://openaccess.thecvf.com/content/CVPR2021/html/Nan_Interventional_Video_Grounding_With_Dual_Contrastive_Learning_CVPR_2021_paper.html)
