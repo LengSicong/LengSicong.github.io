@@ -13,6 +13,7 @@ Education
 ======
 * B.S. in Computer Science and Design, Singapore University of Technology and Design, 2021
 * Ph.D in Computer Science and Engineering, Nanyang Technological University, 2027 (expected)
+  * Supervisor: Professor [Lu Shijian](https://sg-vilab.github.io/people/) and Dr. [Bing Lidong](https://lidongbing.github.io/).
 
 Work experience
 ======
