@@ -31,7 +31,7 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
   * Research on NLP and Multi-modal Learning
   * Supervisor: Professor [Lu Wei](https://istd.sutd.edu.sg/people/faculty/lu-wei/)
 
-## News
+<!-- ## News
   <ul>{% for post in site.talks %}
     {% include archive-single-talk.html %}
   {% endfor %}</ul>
@@ -39,4 +39,4 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 ## Publications
   <ul>{% for post in site.publications %}
     {% include archive-single.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
