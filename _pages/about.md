@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "About Me"
-excerpt: "About me"
+excerpt: "Welcome to my page!"
 author_profile: true
 redirect_from: 
   - /about/
@@ -14,11 +14,6 @@ Hello! I'm Sicong Leng, a 1st-year P.h.D. at Nanyang Technological University. I
 I specialize in Deep Learning with a focus on Multi-modality research, especially for Vision+Language.
 
 Feel free to reach out to me for collaborations, questions, or just to chat!
-
-<!-- ## Publications
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul> -->
 
 ## Education
 - B.S. in Computer Science and Design, Singapore University of Technology and Design, 2021
@@ -36,4 +31,8 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
   * Research on NLP and Multi-modal Learning
   * Supervisor: Professor [Lu Wei](https://istd.sutd.edu.sg/people/faculty/lu-wei/)
 
+## News
+  <ul>{% for post in site.talks %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
 
