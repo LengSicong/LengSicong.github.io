@@ -18,11 +18,16 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 ## Education
 - B.S. in Computer Science and Design, Singapore University of Technology and Design, 2021
 - Ph.D in Computer Science and Engineering, Nanyang Technological University, 2027 (expected)
+  
+## Awards
+* ACL 2023 Area Chair Award (top 1.2% submissions)
+* ACL 2023 Best Paper Nomination (top 1.6% submissions)
 
 ## Service 
 * EMNLP 2023 Industry Track Program Committee
 * EMNLP 2023 Reviewer
 * CoNLL 2023 Reviewer
+* NIPS 2023 Reviewer
 * ACL 2023 Reviewer
 
 ## Work experience
