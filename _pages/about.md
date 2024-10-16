@@ -66,6 +66,9 @@ Please refer to [Google Scholar](https://scholar.google.com/citations?user=xQsBP
   * Research on NLP and Multi-modal Learning
   * Supervisor: Professor [Lu Wei](https://istd.sutd.edu.sg/people/faculty/lu-wei/)
 
+
+Website last updated on 16th October 2024.
+
 <!-- ## News
   <ul>{% for post in site.talks %}
     {% include archive-single-talk.html %}
