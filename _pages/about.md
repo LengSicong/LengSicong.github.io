@@ -9,26 +9,36 @@ redirect_from:
 ---
 
 ## Introduction
-Hello! I'm Sicong Leng, a 1st-year P.h.D. at Nanyang Technological University. I am currently under Alibaba-NTU talent programme and jointly supervised by [Prof.Lu Shijian](https://personal.ntu.edu.sg/shijian.lu/) ([Visual-Intelligence Lab](https://sg-vilab.github.io/)/[S-lab](https://www.ntu.edu.sg/s-lab)) and [Dr.Bing Lidong](https://lidongbing.github.io/) ([Alibaba DAMO Academy](https://github.com/DAMO-NLP-SG)).
+Hello! I'm Sicong Leng, a 2nd-year P.h.D. at Nanyang Technological University. I am currently under Alibaba-NTU talent programme and jointly supervised by [Prof.Lu Shijian](https://personal.ntu.edu.sg/shijian.lu/) ([Visual-Intelligence Lab](https://sg-vilab.github.io/)/[S-lab](https://www.ntu.edu.sg/s-lab)) and [Dr.Bing Lidong](https://lidongbing.github.io/) ([Alibaba DAMO Academy](https://github.com/DAMO-NLP-SG)).
 
 I specialize in Deep Learning with a focus on Multi-modality research, especially for Vision+Language.
 
 Feel free to reach out to me for collaborations, questions, or just to chat!
 
-## Education
-- B.S. in Computer Science and Design, Singapore University of Technology and Design, 2021
-- Ph.D in Computer Science and Engineering, Nanyang Technological University, 2027 (expected)
+## News
+
   
 ## Awards
-* ACL 2023 Area Chair Award (top 1.2% submissions)
-* ACL 2023 Best Paper Nomination (top 1.6% submissions)
+* CVPR 2024 Highlight
+* ACL 2023 Area Chair Award
+* ACL 2023 Best Paper Nomination
+
+<!-- red color is used for highlighting  -->
+## Selected Publications
+* Mitigating Object Hallucinations in Large Vision-Language Models through Visual Contrastive Decoding [paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Leng_Mitigating_Object_Hallucinations_in_Large_Vision-Language_Models_through_Visual_Contrastive_CVPR_2024_paper.pdf) [code](https://github.com/DAMO-NLP-SG/VCD)
+  * **Sicong Leng**\*, Hang Zhang\*, Guanzheng Chen, Xin Li, Shijian Lu, Chunyan Miao, Lidong Bing
+  * CVPR 2024 $\color{red}{\text{(Highlight)}}$
+
+
+Please refer to <u>[Google Scholar](https://scholar.google.com/citations?user=xQsBP6YAAAAJ&hl=en)</u> for the full list of publications.
 
 ## Service 
-* EMNLP 2023 Industry Track Program Committee
-* EMNLP 2023 Reviewer
-* CoNLL 2023 Reviewer
-* NIPS 2023 Reviewer
-* ACL 2023 Reviewer
+* Reviewer:
+  * 2025: NAACL
+  * 2024: EMNLP, WACV
+  * 2023: EMNLP, CoNLL, NIPS, ACL
+* Program Committee:
+  * EMNLP 2023 Industry Track
 
 ## Work experience
 * Aug 2021 - Aug 2023: Research Assistant
