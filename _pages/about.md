@@ -29,6 +29,12 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
   * **Sicong Leng**\*, Hang Zhang\*, Guanzheng Chen, Xin Li, Shijian Lu, Chunyan Miao, Lidong Bing
   * CVPR 2024 $\color{red}{\text{(Highlight)}}$
 
+* VideoLLaMA 2: Advancing Spatial-Temporal Modeling and Audio Understanding in Video-LLMs [paper](https://arxiv.org/abs/2406.07476) [code](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
+  * Zesen Cheng\*, **Sicong Leng**\*, Hang Zhang\*, Yifei Xin\*, Xin Li\*, Guanzheng Chen, Yongxin Zhu, Wenqi Zhang, Ziyang Luo, Deli Zhao, Lidong Bing
+  * ArXiv 2024
+
+
+
 
 Please refer to <u>[Google Scholar](https://scholar.google.com/citations?user=xQsBP6YAAAAJ&hl=en)</u> for the full list of publications.
 
