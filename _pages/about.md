@@ -25,10 +25,8 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 * [23.08] We present our work at AAAI 2023 Summer Symposium Series!
 * [23.07] Tell2Design has received the **Area Chair Award** and **Best Paper Nomination** at **ACL 2023**!
 * [23.06] Our paper [Tell2Design](https://arxiv.org/abs/2311.15941) has been accepted by **ACL 2023** as a long oral paper!
-* [21.06] Our paper about [Video Grounding](https://arxiv.org/abs/2106.11013) has been accepted by **CVPR 2021** as a long paper!
   
 ## Awards
-* CVPR 2024 Highlight
 * ACL 2023 Area Chair Award
 * ACL 2023 Best Paper Nomination
 
@@ -67,7 +65,7 @@ Please refer to [Google Scholar](https://scholar.google.com/citations?user=xQsBP
   * Supervisor: Professor [Lu Wei](https://istd.sutd.edu.sg/people/faculty/lu-wei/)
 
 
-Website last updated on 16th October 2024.
+Website last updated on 18th October 2024.
 
 <!-- ## News
   <ul>{% for post in site.talks %}
