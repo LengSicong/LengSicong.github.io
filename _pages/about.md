@@ -15,6 +15,7 @@ I specialize in Deep Learning with a focus on Multi-modality research, especiall
 Feel free to reach out to me for collaborations, questions, or just to chat!
 
 ## News
+* [24.10] Inf-CLIP has been released! Check out our project [here](https://github.com/DAMO-NLP-SG/Inf-CLIP?tab=readme-ov-file).
 * [24.10] CMM has been released! Check out our project [here](https://cmm-damovl.site).
 * [24.09] 1 paper accepted by **NeurIPS 2024**! Congratulations to the co-authors!
 * [24.06] VideoLLaMA 2 has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
@@ -32,17 +33,21 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 
 <!-- red color is used for highlighting  -->
 ## Selected Publications
-* Mitigating Object Hallucinations in Large Vision-Language Models through Visual Contrastive Decoding [[paper]](https://openaccess.thecvf.com/content/CVPR2024/papers/Leng_Mitigating_Object_Hallucinations_in_Large_Vision-Language_Models_through_Visual_Contrastive_CVPR_2024_paper.pdf) [[code]](https://github.com/DAMO-NLP-SG/VCD)
-  * **Sicong Leng**\*, Hang Zhang\*, Guanzheng Chen, Xin Li, Shijian Lu, Chunyan Miao, Lidong Bing
-  * CVPR 2024 $\color{red}{\text{(Highlight)}}$
+* Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss [[paper]](https://arxiv.org/abs/2410.17243) [[code]](https://github.com/DAMO-NLP-SG/Inf-CLIP)
+  * Zesen Cheng, Hang Zhang, Kehan Li, **Sicong Leng**, Zhiqiang Hu, Fei Wu, Deli Zhao, Xin Li, Lidong Bing
+  * ArXiv 2024
+
+* The Curse of Multi-Modalities: Evaluating Hallucinations of Large Multimodal Models across Language, Visual, and Audio [[paper]](https://arxiv.org/abs/2410.12787) [[project]](cmm-damovl.site) [[code]](https://github.com/DAMO-NLP-SG/CMM)
+  * **Sicong Leng**\*, Yun Xing\*, Zesen Cheng\*, Yang Zhou, Hang Zhang, Xin Li, Deli Zhao, Shijian Lu, Chunyan Miao, Lidong Bing 
+  * ArXiv 2024
 
 * VideoLLaMA 2: Advancing Spatial-Temporal Modeling and Audio Understanding in Video-LLMs [[paper]](https://arxiv.org/abs/2406.07476) [[code]](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
   * Zesen Cheng\*, **Sicong Leng**\*, Hang Zhang\*, Yifei Xin\*, Xin Li\*, Guanzheng Chen, Yongxin Zhu, Wenqi Zhang, Ziyang Luo, Deli Zhao, Lidong Bing
   * ArXiv 2024
 
-* The Curse of Multi-Modalities: Evaluating Hallucinations of Large Multimodal Models across Language, Visual, and Audio [[paper]]() [[project]](cmm-damovl.site) [[code]](https://github.com/DAMO-NLP-SG/CMM)
-  * **Sicong Leng**\*, Yun Xing\*, Zesen Cheng\*, Yang Zhou, Hang Zhang, Xin Li, Deli Zhao, Shijian Lu, Chunyan Miao, Lidong Bing 
-  * ArXiv 2024
+* Mitigating Object Hallucinations in Large Vision-Language Models through Visual Contrastive Decoding [[paper]](https://openaccess.thecvf.com/content/CVPR2024/papers/Leng_Mitigating_Object_Hallucinations_in_Large_Vision-Language_Models_through_Visual_Contrastive_CVPR_2024_paper.pdf) [[code]](https://github.com/DAMO-NLP-SG/VCD)
+  * **Sicong Leng**\*, Hang Zhang\*, Guanzheng Chen, Xin Li, Shijian Lu, Chunyan Miao, Lidong Bing
+  * CVPR 2024 $\color{red}{\text{(Highlight)}}$
 
 * Tell2Design: A Dataset for Language-Guided Floor Plan Generation [[paper]](https://arxiv.org/abs/2311.15941) [[code]](https://github.com/LengSicong/Tell2Design)
   * **Sicong Leng**\*, Yang Zhou\*, Mohammed Haroon Dupty, Wee Sun Lee, Sam Conrad Joyce, Wei Lu
@@ -65,7 +70,7 @@ Please refer to [Google Scholar](https://scholar.google.com/citations?user=xQsBP
   * Supervisor: Professor [Lu Wei](https://istd.sutd.edu.sg/people/faculty/lu-wei/)
 
 
-Website last updated on 18th October 2024.
+Website last updated on 25th October 2024.
 
 <!-- ## News
   <ul>{% for post in site.talks %}
