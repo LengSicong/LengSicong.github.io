@@ -15,6 +15,10 @@ I specialize in Deep Learning with a focus on Multi-modality research, especiall
 Feel free to reach out to me for collaborations, questions, or just to chat!
 
 ## News
+* [25.06] Inf-CLIP has received the **CVPR 2025 Highlight**!
+* [25.03] MMR1 has been released! Check out our code [here](https://github.com/LengSicong/MMR1)
+* [25.03] 2 papers accepted by **CVPR 2025**! Congratulations to the co-authors!
+* [25.01] VideoLLaMA 3 has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VideoLLaMA3)
 * [24.10] Inf-CLIP has been released! Check out our project [here](https://github.com/DAMO-NLP-SG/Inf-CLIP?tab=readme-ov-file).
 * [24.10] CMM has been released! Check out our project [here](https://cmm-damovl.site).
 * [24.09] 1 paper accepted by **NeurIPS 2024**! Congratulations to the co-authors!
@@ -33,9 +37,13 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 
 <!-- red color is used for highlighting  -->
 ## Selected Publications
+* VideoLLaMA 3: Frontier Multimodal Foundation Models for Image and Video Understanding [[paper]](https://arxiv.org/abs/2501.13106) [[code]](https://github.com/DAMO-NLP-SG/VideoLLaMA3)
+  * Boqiang Zhang\*, Kehan Li\*, Zesen Cheng\*, Zhiqiang Hu\*, Yuqian Yuan\*, Guanzheng Chen\*, **Sicong Leng**\*, Yuming Jiang\*, Hang Zhang\*, Xin Li\*, Peng Jin, Wenqi Zhang, Fan Wang, Lidong Bing, Deli Zhao
+  * ArXiv 2025
+
 * Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss [[paper]](https://arxiv.org/abs/2410.17243) [[code]](https://github.com/DAMO-NLP-SG/Inf-CLIP)
   * Zesen Cheng, Hang Zhang, Kehan Li, **Sicong Leng**, Zhiqiang Hu, Fei Wu, Deli Zhao, Xin Li, Lidong Bing
-  * ArXiv 2024
+  * CVPR 2025 $\color{red}{\text{(Highlight)}}$
 
 * The Curse of Multi-Modalities: Evaluating Hallucinations of Large Multimodal Models across Language, Visual, and Audio [[paper]](https://arxiv.org/abs/2410.12787) [[project]](cmm-damovl.site) [[code]](https://github.com/DAMO-NLP-SG/CMM)
   * **Sicong Leng**\*, Yun Xing\*, Zesen Cheng\*, Yang Zhou, Hang Zhang, Xin Li, Deli Zhao, Shijian Lu, Chunyan Miao, Lidong Bing 
@@ -57,7 +65,7 @@ Please refer to [Google Scholar](https://scholar.google.com/citations?user=xQsBP
 
 ## Service 
 * Reviewer:
-  * 2025: NAACL
+  * 2025: TPAMI, TMM, NAACL, EMNLP
   * 2024: EMNLP, WACV
   * 2023: EMNLP, CoNLL, NIPS, ACL
 * Program Committee:
@@ -70,7 +78,7 @@ Please refer to [Google Scholar](https://scholar.google.com/citations?user=xQsBP
   * Supervisor: Professor [Lu Wei](https://istd.sutd.edu.sg/people/faculty/lu-wei/)
 
 
-Website last updated on 25th October 2024.
+Website last updated on 17th June 2025.
 
 <!-- ## News
   <ul>{% for post in site.talks %}
