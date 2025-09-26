@@ -11,32 +11,42 @@ redirect_from:
 ## Introduction
 Hello! I'm Sicong Leng, a 2nd-year P.h.D. at Nanyang Technological University. I am currently under Alibaba-NTU talent programme and jointly supervised by [Prof.Lu Shijian](https://personal.ntu.edu.sg/shijian.lu/) ([Visual-Intelligence Lab](https://sg-vilab.github.io/)/[S-lab](https://www.ntu.edu.sg/s-lab)) and [Dr.Bing Lidong](https://lidongbing.github.io/) ([Alibaba DAMO Academy](https://github.com/DAMO-NLP-SG)).
 
-I specialize in Deep Learning with a focus on Multi-modality research, especially for Vision+Language.
+I specialize in Deep Learning with a focus on Multi-modality and Embodied AI research, especially for Vision+Language and Vision+Language+Action.
 Feel free to reach out to me for collaborations, questions, or just to chat!
 
 ## News
+* [25.09] We present **MMR1** with open-sourced [data](https://huggingface.co/MMR1/datasets), [code](https://github.com/LengSicong/MMR1) and [model](https://huggingface.co/MMR1/models)! Check out our paper [here](https://huggingface.co/papers/2509.21268).
+* [25.09] 2 papers accepted by **NeurIPS 2025**! [One](https://arxiv.org/abs/2505.22323) is accepted as **oral** paper! Congratulations to the co-authors!
+* [25.08] RynnVLA-001 is released! Check out our paper and code [here](https://github.com/alibaba-damo-academy/RynnVLA-001).
 * [25.06] Inf-CLIP has received the **CVPR 2025 Highlight**!
-* [25.03] MMR1 has been released! Check out our code [here](https://github.com/LengSicong/MMR1)
+* [25.03] MMR1 has been released! Check out our code [here](https://github.com/LengSicong/MMR1).
 * [25.03] 2 papers accepted by **CVPR 2025**! Congratulations to the co-authors!
-* [25.01] VideoLLaMA 3 has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VideoLLaMA3)
+* [25.01] VideoLLaMA 3 has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VideoLLaMA3).
 * [24.10] Inf-CLIP has been released! Check out our project [here](https://github.com/DAMO-NLP-SG/Inf-CLIP?tab=readme-ov-file).
 * [24.10] CMM has been released! Check out our project [here](https://cmm-damovl.site).
 * [24.09] 1 paper accepted by **NeurIPS 2024**! Congratulations to the co-authors!
-* [24.06] VideoLLaMA 2 has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
+* [24.06] VideoLLaMA 2 has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VideoLLaMA2).
 * [24.04] VCD has received the **CVPR 2024 Highlight**!
 * [24.03] 3 papers accepted by **CVPR 2024**! Congratulations to the co-authors!
-* [23.11] VCD has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VCD)
+* [23.11] VCD has been released! Check out our paper and code [here](https://github.com/DAMO-NLP-SG/VCD).
 * [23.08] We present our work at Nvidia Internal Technical Sharing!
 * [23.08] We present our work at AAAI 2023 Summer Symposium Series!
 * [23.07] Tell2Design has received the **Area Chair Award** and **Best Paper Nomination** at **ACL 2023**!
 * [23.06] Our paper [Tell2Design](https://arxiv.org/abs/2311.15941) has been accepted by **ACL 2023** as a long oral paper!
   
 ## Awards
+* NeurIPS 2025 Oral
+* CVPR 2025 Highlight
+* CVPR 2024 Highlight
 * ACL 2023 Area Chair Award
 * ACL 2023 Best Paper Nomination
 
 <!-- red color is used for highlighting  -->
 ## Selected Publications
+* MMR1: Enhancing Multimodal Reasoning with Variance-Aware Sampling and Open Resources [[paper]](https://arxiv.org/abs/2509.21268) [[code]](https://github.com/LengSicong/MMR1) [[data]](https://huggingface.co/MMR1/datasets) [[model]](https://huggingface.co/MMR1/models)
+  * **Sicong Leng**\*, Jing Wang\*, Jiaxi Li\*, Hao Zhang\*, Zhiqiang Hu, Boqiang Zhang, Yuming Jiang, Hang Zhang, Xin Li, Lidong Bing, Deli Zhao, Wei Lu, Yu Rong, Aixin Sun, Shijian Lu
+  * ArXiv 2025
+
 * VideoLLaMA 3: Frontier Multimodal Foundation Models for Image and Video Understanding [[paper]](https://arxiv.org/abs/2501.13106) [[code]](https://github.com/DAMO-NLP-SG/VideoLLaMA3)
   * Boqiang Zhang\*, Kehan Li\*, Zesen Cheng\*, Zhiqiang Hu\*, Yuqian Yuan\*, Guanzheng Chen\*, **Sicong Leng**\*, Yuming Jiang\*, Hang Zhang\*, Xin Li\*, Peng Jin, Wenqi Zhang, Fan Wang, Lidong Bing, Deli Zhao
   * ArXiv 2025
@@ -78,7 +88,7 @@ Please refer to [Google Scholar](https://scholar.google.com/citations?user=xQsBP
   * Supervisor: Professor [Lu Wei](https://istd.sutd.edu.sg/people/faculty/lu-wei/)
 
 
-Website last updated on 17th June 2025.
+Website last updated on 26th September 2025.
 
 <!-- ## News
   <ul>{% for post in site.talks %}
