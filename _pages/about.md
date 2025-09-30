@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 ## Introduction
-Hello! I'm Sicong Leng, a 2nd-year P.h.D. at Nanyang Technological University. I am currently under Alibaba-NTU talent programme and jointly supervised by [Prof.Lu Shijian](https://personal.ntu.edu.sg/shijian.lu/) ([Visual-Intelligence Lab](https://sg-vilab.github.io/)/[S-lab](https://www.ntu.edu.sg/s-lab)) and [Dr.Bing Lidong](https://lidongbing.github.io/) ([Alibaba DAMO Academy](https://github.com/DAMO-NLP-SG)).
+Hello! I'm Sicong Leng, a 3rd-year P.h.D. at Nanyang Technological University. I am currently under Alibaba-NTU talent programme and jointly supervised by [Prof.Lu Shijian](https://personal.ntu.edu.sg/shijian.lu/) ([Visual-Intelligence Lab](https://sg-vilab.github.io/)/[S-lab](https://www.ntu.edu.sg/s-lab)) and [Dr.Bing Lidong](https://lidongbing.github.io/) ([Alibaba DAMO Academy](https://github.com/DAMO-NLP-SG)).
 
 I specialize in Deep Learning with a focus on Multi-modality and Embodied AI research, especially for Vision+Language and Vision+Language+Action.
 Feel free to reach out to me for collaborations, questions, or just to chat!
@@ -57,7 +57,7 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 
 * The Curse of Multi-Modalities: Evaluating Hallucinations of Large Multimodal Models across Language, Visual, and Audio [[paper]](https://arxiv.org/abs/2410.12787) [[project]](cmm-damovl.site) [[code]](https://github.com/DAMO-NLP-SG/CMM)
   * **Sicong Leng**\*, Yun Xing\*, Zesen Cheng\*, Yang Zhou, Hang Zhang, Xin Li, Deli Zhao, Shijian Lu, Chunyan Miao, Lidong Bing 
-  * ArXiv 2024
+  * NeurIPS 2025
 
 * VideoLLaMA 2: Advancing Spatial-Temporal Modeling and Audio Understanding in Video-LLMs [[paper]](https://arxiv.org/abs/2406.07476) [[code]](https://github.com/DAMO-NLP-SG/VideoLLaMA2)
   * Zesen Cheng\*, **Sicong Leng**\*, Hang Zhang\*, Yifei Xin\*, Xin Li\*, Guanzheng Chen, Yongxin Zhu, Wenqi Zhang, Ziyang Luo, Deli Zhao, Lidong Bing
