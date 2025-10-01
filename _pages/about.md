@@ -40,6 +40,7 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 * CVPR 2024 Highlight
 * ACL 2023 Area Chair Award
 * ACL 2023 Best Paper Nomination
+* ACL 2023 Oral
 
 <!-- red color is used for highlighting  -->
 ## Selected Publications
