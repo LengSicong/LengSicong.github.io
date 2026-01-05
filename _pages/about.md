@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 ## Introduction
-Hello! I'm Sicong Leng, a 3rd-year P.h.D. at Nanyang Technological University supervised by [Prof.Lu Shijian](https://personal.ntu.edu.sg/shijian.lu/) ([Visual-Intelligence Lab](https://sg-vilab.github.io/)/[S-lab](https://www.ntu.edu.sg/s-lab)).
+Hello! I'm Sicong Leng, a 3rd-year P.h.D. at Nanyang Technological University supervised by [Prof.Lu Shijian](https://personal.ntu.edu.sg/shijian.lu/) ([Visual-Intelligence Lab](https://sg-vilab.github.io/)/[S-lab](https://www.ntu.edu.sg/s-lab)) and [Dr. Bing Lidong](https://lidongbing.github.io/).
 I specialize in Deep Learning with a focus on Multi-modality and Embodied AI research, especially for Vision+Language and Vision+Language+Action.
 Feel free to reach out to me for collaborations, questions, or just to chat!
 
