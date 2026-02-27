@@ -16,6 +16,7 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 ## News
 * [26.02] 2 papers accepted by **CVPR 2026**! Congratulations to the co-authors!
 * [26.02] Rynnbrain is released! Check out our project [here](https://alibaba-damo-academy.github.io/RynnBrain.github.io/).
+* [26.01] [RynnVLA-001](https://github.com/alibaba-damo-academy/RynnVLA-001) accepted by **ICRA 2026**! Congratulations to the co-authors!
 * [25.09] We present **MMR1** with open-sourced [data](https://huggingface.co/MMR1/datasets), [code](https://github.com/LengSicong/MMR1) and [model](https://huggingface.co/MMR1/models)! Check out our paper [here](https://huggingface.co/papers/2509.21268).
 * [25.09] 2 papers accepted by **NeurIPS 2025**! [One](https://arxiv.org/abs/2505.22323) is accepted as **oral** paper! Congratulations to the co-authors!
 * [25.08] RynnVLA-001 is released! Check out our paper and code [here](https://github.com/alibaba-damo-academy/RynnVLA-001).
