@@ -14,6 +14,8 @@ I specialize in Deep Learning with a focus on Multi-modality and Embodied AI res
 Feel free to reach out to me for collaborations, questions, or just to chat!
 
 ## News
+* [26.02] 2 papers accepted by **CVPR 2026**! Congratulations to the co-authors!
+* [26.02] Rynnbrain is released! Check out our project [here](https://alibaba-damo-academy.github.io/RynnBrain.github.io/).
 * [25.09] We present **MMR1** with open-sourced [data](https://huggingface.co/MMR1/datasets), [code](https://github.com/LengSicong/MMR1) and [model](https://huggingface.co/MMR1/models)! Check out our paper [here](https://huggingface.co/papers/2509.21268).
 * [25.09] 2 papers accepted by **NeurIPS 2025**! [One](https://arxiv.org/abs/2505.22323) is accepted as **oral** paper! Congratulations to the co-authors!
 * [25.08] RynnVLA-001 is released! Check out our paper and code [here](https://github.com/alibaba-damo-academy/RynnVLA-001).
@@ -43,9 +45,13 @@ Feel free to reach out to me for collaborations, questions, or just to chat!
 
 <!-- red color is used for highlighting  -->
 ## Selected Publications
+* RynnBrain: Open Embodied Foundation Models [[project]](https://alibaba-damo-academy.github.io/RynnBrain.github.io/) [[paper]](https://arxiv.org/abs/2602.14979v1) [[code]](https://github.com/alibaba-damo-academy/RynnBrain)
+  * Ronghao Dang\*, Jiayan Guo\*, Bohan Hou\*, **Sicong Leng**\*, Kehan Li\*, Xin Li\*, Jiangping Liu\*, Yunxuan Mao\*, Zhikai Wang\*, Yuqian Yuan\*, Minghao Zhu\*, Xiao Lin, Yang Bai, Qian Jiang, Yaxi Zhao, Minghua Zeng, Junlong Gao, Yuming Jiang, Jun Cen, Siteng Huang, Liuyi Wang, Wenqiao Zhang, Chengju Liu, Jianfei Yang, Shijian Lu, Deli Zhao
+  * ArXiv 2026
+
 * MMR1: Enhancing Multimodal Reasoning with Variance-Aware Sampling and Open Resources [[paper]](https://arxiv.org/abs/2509.21268) [[code]](https://github.com/LengSicong/MMR1) [[data]](https://huggingface.co/MMR1/datasets) [[model]](https://huggingface.co/MMR1/models)
   * **Sicong Leng**\*, Jing Wang\*, Jiaxi Li\*, Hao Zhang\*, Zhiqiang Hu, Boqiang Zhang, Yuming Jiang, Hang Zhang, Xin Li, Lidong Bing, Deli Zhao, Wei Lu, Yu Rong, Aixin Sun, Shijian Lu
-  * ArXiv 2025
+  * CVPR 2026
 
 * VideoLLaMA 3: Frontier Multimodal Foundation Models for Image and Video Understanding [[paper]](https://arxiv.org/abs/2501.13106) [[code]](https://github.com/DAMO-NLP-SG/VideoLLaMA3)
   * Boqiang Zhang\*, Kehan Li\*, Zesen Cheng\*, Zhiqiang Hu\*, Yuqian Yuan\*, Guanzheng Chen\*, **Sicong Leng**\*, Yuming Jiang\*, Hang Zhang\*, Xin Li\*, Peng Jin, Wenqi Zhang, Fan Wang, Lidong Bing, Deli Zhao
