@@ -1,0 +1,84 @@
+---
+import { site } from '@/data/site';
+
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  showLabels?: boolean;
+  class?: string;
+}
+
+const { size = 'md', showLabels = false, class: className = '' } = Astro.props;
+
+const sizeMap = {
+  sm: 'h-4 w-4',
+  md: 'h-5 w-5',
+  lg: 'h-6 w-6',
+};
+const iconSize = sizeMap[size];
+
+const links = [
+  {
+    label: 'GitHub',
+    href: site.socials.github,
+    icon: 'github',
+  },
+  {
+    label: 'Scholar',
+    href: site.socials.scholar,
+    icon: 'scholar',
+  },
+  {
+    label: 'Twitter',
+    href: site.socials.twitter,
+    icon: 'twitter',
+  },
+  {
+    label: 'Email',
+    href: `mailto:${site.socials.email}`,
+    icon: 'email',
+  },
+] as const;
+---
+
+<ul class={`flex flex-wrap items-center gap-x-5 gap-y-2 ${className}`}>
+  {
+    links.map((l) => (
+      <li>
+        <a
+          href={l.href}
+          class="group inline-flex items-center gap-2 text-graphite hover:text-sienna transition-colors"
+          target={l.icon === 'email' ? '_self' : '_blank'}
+          rel={l.icon === 'email' ? undefined : 'noopener noreferrer'}
+          aria-label={l.label}
+        >
+          {l.icon === 'github' && (
+            <svg class={iconSize} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.093.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.31.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.026 10.026 0 0022 12.021C22 6.484 17.523 2 12 2z"
+              />
+            </svg>
+          )}
+          {l.icon === 'scholar' && (
+            <svg class={iconSize} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z" />
+            </svg>
+          )}
+          {l.icon === 'twitter' && (
+            <svg class={iconSize} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          )}
+          {l.icon === 'email' && (
+            <svg class={iconSize} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+          )}
+          {showLabels && <span class="text-sm">{l.label}</span>}
+        </a>
+      </li>
+    ))
+  }
+</ul>

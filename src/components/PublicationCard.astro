@@ -1,0 +1,63 @@
+---
+import type { Publication } from '@/data/publications';
+import { renderInline } from '@/lib/markdown-lite';
+
+interface Props {
+  pub: Publication;
+}
+
+const { pub } = Astro.props;
+const authorsHtml = renderInline(pub.authors);
+
+const linkOrder: Array<{ key: keyof NonNullable<Publication['links']>; label: string }> = [
+  { key: 'paper', label: 'paper' },
+  { key: 'code', label: 'code' },
+  { key: 'project', label: 'project' },
+  { key: 'data', label: 'data' },
+  { key: 'model', label: 'model' },
+];
+const links = linkOrder
+  .map((l) => ({ ...l, href: pub.links?.[l.key] }))
+  .filter((l): l is { key: keyof NonNullable<Publication['links']>; label: string; href: string } => Boolean(l.href));
+---
+
+<article
+  class="group relative rounded-xl border border-border bg-bone/40 hover:bg-bone hover:border-clay/40 hover:shadow-sm transition-all p-5 sm:p-6"
+>
+  <h3 class="font-serif text-lg sm:text-xl leading-snug text-charcoal">
+    {pub.title}
+  </h3>
+
+  <p
+    class="mt-2 text-sm leading-relaxed text-mist [&_strong]:text-graphite [&_strong]:font-semibold"
+    set:html={authorsHtml}
+  />
+
+  <div class="mt-3 flex flex-wrap items-center gap-2">
+    <span class="font-mono text-xs uppercase tracking-wider text-graphite">
+      {pub.venue} {pub.year}
+    </span>
+    {
+      pub.badges?.map((b) => (
+        <span class="pill-clay font-mono uppercase tracking-wider">{b}</span>
+      ))
+    }
+  </div>
+
+  {
+    links.length > 0 && (
+      <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+        {links.map((l) => (
+          <a
+            href={l.href}
+            class="font-mono text-xs uppercase tracking-wider text-clay hover:text-sienna transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            [{l.label}]
+          </a>
+        ))}
+      </div>
+    )
+  }
+</article>

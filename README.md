@@ -1,31 +1,54 @@
-A Github Pages template for academic websites. This was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License. See LICENSE.md.
+# lengsicong.github.io
 
-I think I've got things running smoothly and fixed some major bugs, but feel free to file issues or make pull requests if you want to improve the generic template / theme.
+Personal homepage of Sicong Leng — PhD student at NTU.
+Live at https://lengsicong.github.io/.
 
-### Note: if you are using this repo and now get a notification about a security vulnerability, delete the Gemfile.lock file. 
+Built with [Astro](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/).
+Deployed to GitHub Pages via the workflow in `.github/workflows/deploy.yml` (any push to `master` rebuilds and ships).
 
-# Instructions
+## Local development
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+```bash
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # static output -> ./dist
+npm run preview   # serve ./dist locally
+```
 
-See more info at https://academicpages.github.io/
+Requires Node 20+.
 
-## To run locally (not on GitHub Pages, to serve on your own computer)
+## Editing content
 
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+Almost all site content lives in `src/data/` as plain TypeScript — no CMS, no markdown indirection.
 
-# Changelog -- bugfixes and enhancements
+| What | Where |
+|---|---|
+| Name, tagline, bio, socials | `src/data/site.ts` |
+| News timeline | `src/data/news.ts` |
+| Publications | `src/data/publications.ts` |
+| Awards | `src/data/awards.ts` |
+| Work experience + service | `src/data/experience.ts` |
 
-There is one logistical issue with a ready-to-fork template theme like academic pages that makes it a little tricky to get bug fixes and updates to the core theme. If you fork this repository, customize it, then pull again, you'll probably get merge conflicts. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch. 
+The `body` of news items and the `authors` of publications support a tiny inline-markdown subset: `**bold**`, `[text](url)`, and `\*` for a literal asterisk (used for equal-contribution markers).
 
-To support this, all changes to the underlying code appear as a closed issue with the tag 'code change' -- get the list [here](https://github.com/academicpages/academicpages.github.io/issues?q=is%3Aclosed%20is%3Aissue%20label%3A%22code%20change%22%20). Each issue thread includes a comment linking to the single commit or a diff across multiple commits, so those with forked repositories can easily identify what they need to patch.
+To add a new publication, prepend an entry to `publications`. Set `featured: true` to show it on the home page; all entries appear on `/publications/`.
+
+To add news, prepend to `news`. The newest 8 items are visible by default; the rest are behind a "Show N more" toggle.
+
+## Visual customization
+
+- **Colors** — `tailwind.config.mjs` `theme.extend.colors` (Anthropic-inspired warm palette: `ivory`, `bone`, `charcoal`, `clay`, `sienna`, `sand`).
+- **Fonts** — `tailwind.config.mjs` `fontFamily` + the Google Fonts `<link>` in `src/layouts/Base.astro`.
+- **Hero copy** — `src/data/site.ts` `tagline` + structure in `src/components/Hero.astro`.
+- **Section ordering** — `src/pages/index.astro` (each section is a self-contained block).
+
+## Assets
+
+Static files served from the site root come from `public/`:
+- `public/images/profile.jpg` — main portrait
+- `public/files/*.pdf` — downloadable PDFs
+- `public/favicon.svg`
+
+## History
+
+The previous Jekyll/academicpages version of this site is preserved on the `legacy-jekyll` branch.

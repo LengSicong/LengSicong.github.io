@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  ::selection {
+    @apply bg-clay/30 text-charcoal;
+  }
+
+  a {
+    @apply transition-colors duration-150;
+  }
+}
+
+@layer components {
+  .link-clay {
+    @apply text-clay hover:text-sienna underline decoration-clay/40 hover:decoration-sienna/70 underline-offset-2;
+  }
+
+  .pill {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
+  }
+
+  .pill-clay {
+    @apply pill bg-clay/10 text-sienna border-clay/30;
+  }
+
+  .pill-sand {
+    @apply pill bg-sand/15 text-graphite border-sand/40;
+  }
+
+  .pill-mist {
+    @apply pill bg-bone text-mist border-border;
+  }
+
+  .section-divider {
+    @apply h-px w-12 bg-clay/60;
+  }
+}

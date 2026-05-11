@@ -1,0 +1,17 @@
+---
+import { site } from '@/data/site';
+---
+
+<footer class="mt-24 border-t border-border bg-bone/40">
+  <div class="mx-auto max-w-wide px-6 sm:px-8 md:px-12 py-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-sm text-mist">
+    <p>© {new Date().getFullYear()} {site.name}. Last updated {site.lastUpdated}.</p>
+    <p class="font-mono text-xs sm:text-right">
+      Built with
+      <a href="https://claude.com/claude-code" class="link-clay" target="_blank" rel="noopener noreferrer">Claude Code</a>
+      ·
+      <a href="https://astro.build" class="link-clay" target="_blank" rel="noopener noreferrer">Astro</a>
+      ·
+      <a href="https://tailwindcss.com" class="link-clay" target="_blank" rel="noopener noreferrer">Tailwind</a>
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,86 @@
+---
+import { site } from '@/data/site';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<section
+  id="top"
+  class="relative min-h-[100svh] flex flex-col justify-center px-6 sm:px-8 md:px-12 overflow-hidden"
+>
+  <!-- subtle background ornament -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 opacity-[0.5]"
+    aria-hidden="true"
+  >
+    <div
+      class="absolute top-1/3 -left-32 h-[480px] w-[480px] rounded-full bg-sand/30 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute bottom-10 -right-24 h-[420px] w-[420px] rounded-full bg-clay/20 blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="mx-auto w-full max-w-wide">
+    <p
+      class="mb-6 text-sm uppercase tracking-[0.2em] text-clay font-mono animate-fade-up"
+    >
+      Hi, I'm
+    </p>
+
+    <h1
+      class="font-serif text-[clamp(3rem,9vw,7.5rem)] leading-[1.02] tracking-tighter-2 text-charcoal animate-fade-up"
+      style="animation-delay: 80ms"
+    >
+      Sicong&nbsp;Leng
+      <span class="block text-mist/70 text-[0.45em] font-sans font-light tracking-normal mt-3">
+        冷思聪
+      </span>
+    </h1>
+
+    <p
+      class="mt-8 max-w-2xl font-serif text-2xl sm:text-3xl md:text-4xl leading-tight text-graphite animate-fade-up whitespace-pre-line"
+      style="animation-delay: 160ms"
+    >
+      {site.tagline}
+    </p>
+
+    <p
+      class="mt-6 text-mist text-base sm:text-lg animate-fade-up"
+      style="animation-delay: 240ms"
+    >
+      {site.affiliation}
+      <span class="mx-2 text-border">·</span>
+      {site.location}
+    </p>
+
+    <div
+      class="mt-10 animate-fade-up"
+      style="animation-delay: 320ms"
+    >
+      <SocialLinks size="md" showLabels={true} />
+    </div>
+  </div>
+
+  <a
+    href="#about"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-mist hover:text-clay transition-colors animate-fade-up"
+    style="animation-delay: 480ms"
+    aria-label="Scroll to next section"
+  >
+    <span class="text-xs uppercase tracking-[0.2em] mb-2">scroll</span>
+    <svg
+      class="h-5 w-5 animate-bounce-slow"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 5v14M5 12l7 7 7-7"></path>
+    </svg>
+  </a>
+</section>

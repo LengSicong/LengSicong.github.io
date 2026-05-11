@@ -1,0 +1,48 @@
+---
+import { site } from '@/data/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+const links = [
+  { label: 'About', href: '/#about' },
+  { label: 'News', href: '/#news' },
+  { label: 'Publications', href: '/publications/' },
+];
+
+function isActive(href: string): boolean {
+  if (href.startsWith('/#')) return currentPath === '/' || currentPath === '';
+  return currentPath === href || currentPath === href.replace(/\/$/, '');
+}
+---
+
+<nav
+  class="sticky top-0 z-30 backdrop-blur-md bg-ivory/80 border-b border-border/60"
+>
+  <div class="mx-auto max-w-wide px-6 sm:px-8 md:px-12 h-14 flex items-center justify-between">
+    <a href="/" class="font-serif text-lg tracking-tight text-charcoal hover:text-sienna transition-colors">
+      {site.shortName}<span class="text-clay">.</span>
+    </a>
+
+    <ul class="flex items-center gap-6 sm:gap-8 text-sm font-mono uppercase tracking-wider">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class:list={[
+                'transition-colors',
+                isActive(l.href) ? 'text-clay' : 'text-graphite hover:text-clay',
+              ]}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>

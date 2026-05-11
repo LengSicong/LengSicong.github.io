@@ -1,0 +1,101 @@
+---
+import { news } from '@/data/news';
+import { renderInline } from '@/lib/markdown-lite';
+
+interface Props {
+  initialCount?: number;
+}
+
+const { initialCount = 8 } = Astro.props;
+
+function formatDate(d: string): { month: string; year: string } {
+  const [y, m] = d.split('-');
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return { month: months[Number(m) - 1] ?? m, year: y };
+}
+
+const items = news.map((item) => ({
+  ...item,
+  formatted: formatDate(item.date),
+  html: renderInline(item.body),
+}));
+
+const visible = items.slice(0, initialCount);
+const hidden = items.slice(initialCount);
+---
+
+<ol class="relative space-y-6">
+  {
+    visible.map((item) => (
+      <li class="flex gap-5 items-start">
+        <div class="flex-shrink-0 w-16 sm:w-20 pt-0.5 text-right">
+          <div class="font-mono text-xs uppercase tracking-wider text-clay">
+            {item.formatted.month}
+          </div>
+          <div class="font-mono text-xs text-mist">{item.formatted.year}</div>
+        </div>
+        <div
+          class:list={[
+            'flex-1 leading-relaxed text-base text-graphite',
+            '[&_a]:link-clay [&_strong]:text-charcoal',
+            item.highlight && 'border-l-2 border-clay/60 pl-4',
+          ]}
+          set:html={item.html}
+        />
+      </li>
+    ))
+  }
+
+  {
+    hidden.length > 0 && (
+      <>
+        <li id="news-rest" class="hidden space-y-6">
+          <ul class="space-y-6">
+            {hidden.map((item) => (
+              <li class="flex gap-5 items-start">
+                <div class="flex-shrink-0 w-16 sm:w-20 pt-0.5 text-right">
+                  <div class="font-mono text-xs uppercase tracking-wider text-clay">
+                    {item.formatted.month}
+                  </div>
+                  <div class="font-mono text-xs text-mist">{item.formatted.year}</div>
+                </div>
+                <div
+                  class:list={[
+                    'flex-1 leading-relaxed text-base text-graphite',
+                    '[&_a]:link-clay [&_strong]:text-charcoal',
+                    item.highlight && 'border-l-2 border-clay/60 pl-4',
+                  ]}
+                  set:html={item.html}
+                />
+              </li>
+            ))}
+          </ul>
+        </li>
+        <li class="pt-2">
+          <button
+            type="button"
+            id="news-toggle"
+            class="font-mono text-xs uppercase tracking-[0.2em] text-clay hover:text-sienna transition-colors"
+          >
+            Show {hidden.length} more →
+          </button>
+        </li>
+      </>
+    )
+  }
+</ol>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('news-toggle');
+    const rest = document.getElementById('news-rest');
+    if (!btn || !rest) return;
+    let open = false;
+    btn.addEventListener('click', () => {
+      open = !open;
+      rest.classList.toggle('hidden', !open);
+      btn.textContent = open ? 'Show less ↑' : btn.dataset.more ?? btn.textContent;
+    });
+    btn.dataset.more = btn.textContent ?? '';
+  })();
+</script>
