@@ -8,7 +8,7 @@ export const site = {
   url: 'https://lengsicong.github.io',
   lastUpdated: '2026-05-11',
 
-  tagline: 'Building physical intelligence,\none token at a time.',
+  tagline: 'Building physical intelligence,\none motor at a time.',
   affiliation: 'PhD @ Nanyang Technological University',
   location: 'Singapore',
 
