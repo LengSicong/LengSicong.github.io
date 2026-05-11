@@ -15,7 +15,7 @@ export type WorkItem = {
 export const work: WorkItem[] = [
   {
     role: 'Research Intern',
-    org: 'Alibaba DAMO Academy — Embodied Intelligence Team',
+    org: 'Embodied Intelligence Team, Alibaba DAMO Academy',
     period: '2024 – Present',
     description:
       'Research on embodied foundation models and multimodal reasoning, contributing to RynnBrain, RynnVLA-001, MMR1, and the VideoLLaMA series.',
