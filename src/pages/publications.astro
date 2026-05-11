@@ -26,7 +26,7 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
       {
         years.map((year) => (
           <section>
-            <h2 class="text-xl mb-6 tabular-nums">{year}</h2>
+            <h2 class="text-2xl font-semibold mb-7 tabular-nums">{year}</h2>
             <div class="space-y-7">
               {byYear.get(year)!.map((pub) => <PublicationCard pub={pub} />)}
             </div>

@@ -59,13 +59,13 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
 
     <!-- News -->
     <section class="mb-20 sm:mb-24">
-      <h2 class="text-xl mb-6">News</h2>
+      <h2 class="text-2xl font-semibold mb-7">News</h2>
       <NewsTimeline initialCount={8} />
     </section>
 
     <!-- Selected Publications -->
     <section class="mb-20 sm:mb-24">
-      <h2 class="text-xl mb-6">Selected publications</h2>
+      <h2 class="text-2xl font-semibold mb-7">Selected publications</h2>
       <div class="space-y-7">
         {featuredPubs.map((pub) => <PublicationCard pub={pub} />)}
       </div>
@@ -78,7 +78,7 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
 
     <!-- Experience -->
     <section class="mb-20 sm:mb-24">
-      <h2 class="text-xl mb-6">Experience</h2>
+      <h2 class="text-2xl font-semibold mb-7">Experience</h2>
       <div class="space-y-7">
         {
           work.map((w) => (
@@ -106,7 +106,7 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
 
     <!-- Off the clock -->
     <section class="mb-20 sm:mb-24">
-      <h2 class="text-xl mb-6">Off the clock</h2>
+      <h2 class="text-2xl font-semibold mb-7">Off the clock</h2>
       <p>
         {site.hobbies.map((h, i) => (
           <>
@@ -118,11 +118,11 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
     </section>
 
     <!-- Closing quote -->
-    <aside class="mt-32 pt-8 border-t border-border">
-      <blockquote class="italic text-mist">
+    <aside class="mt-32 pt-10 border-t border-border">
+      <blockquote class="text-lg sm:text-xl italic leading-snug text-charcoal">
         “{site.mission.quote}”
-        <span class="not-italic"> — {site.mission.attribution}</span>
       </blockquote>
+      <p class="mt-4 text-mist">— {site.mission.attribution}</p>
     </aside>
 
   </main>

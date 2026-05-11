@@ -26,7 +26,7 @@ export const site = {
 
   mission: {
     quote:
-      'We were born too late to explore the earth and too early to explore the stars. We were born just in time to solve robotics.',
+      "We were born too late to explore the earth and too early to explore the stars. We were born just in time to solve robotics. I'm on a mission to make Physical AI a reality, one motor at a time.",
     attribution: 'Jim Fan',
     coda: `That's the spirit behind my work — pushing multimodal and embodied AI forward, one token at a time.`,
   },
