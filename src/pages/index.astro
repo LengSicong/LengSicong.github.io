@@ -15,29 +15,41 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
   <main class="mx-auto max-w-column px-6 sm:px-8 pt-16 sm:pt-24 pb-24">
 
     <!-- Hero -->
-    <header class="mb-24 sm:mb-32">
-      <h1 class="text-4xl sm:text-5xl leading-[1.05] tracking-tight">
-        Sicong Leng
-        <span class="text-mist text-[0.5em] align-baseline ml-1">冷思聪</span>
-      </h1>
+    <header class="mb-24 sm:mb-32 sm:grid sm:grid-cols-[1fr_auto] sm:gap-10 sm:items-start">
+      <img
+        src="/images/profile.jpg"
+        alt={`Portrait of ${site.name}`}
+        width="128"
+        height="128"
+        loading="eager"
+        decoding="async"
+        class="mb-8 sm:mb-0 sm:order-2 h-24 w-24 sm:h-32 sm:w-32 rounded-lg object-cover"
+      />
 
-      <p class="mt-6 text-xl sm:text-2xl leading-snug text-charcoal">
-        {site.tagline.replace('\n', ' ')}
-      </p>
+      <div>
+        <h1 class="text-4xl sm:text-5xl leading-[1.05] tracking-tight">
+          Sicong Leng
+          <span class="text-mist text-[0.5em] align-baseline ml-1">冷思聪</span>
+        </h1>
 
-      <p class="mt-5 text-mist">
-        {site.affiliation} · {site.location}
-      </p>
+        <p class="mt-6 text-xl sm:text-2xl leading-snug text-charcoal">
+          {site.tagline.replace('\n', ' ')}
+        </p>
 
-      <p class="mt-6">
-        <a href={site.socials.github} target="_blank" rel="noopener noreferrer">github</a>
-        <span class="text-mist mx-1.5">·</span>
-        <a href={site.socials.scholar} target="_blank" rel="noopener noreferrer">google scholar</a>
-        <span class="text-mist mx-1.5">·</span>
-        <a href={site.socials.twitter} target="_blank" rel="noopener noreferrer">twitter</a>
-        <span class="text-mist mx-1.5">·</span>
-        <a href={`mailto:${site.socials.email}`}>email</a>
-      </p>
+        <p class="mt-5 text-mist">
+          {site.affiliation} · {site.location}
+        </p>
+
+        <p class="mt-6">
+          <a href={site.socials.github} target="_blank" rel="noopener noreferrer">github</a>
+          <span class="text-mist mx-1.5">·</span>
+          <a href={site.socials.scholar} target="_blank" rel="noopener noreferrer">google scholar</a>
+          <span class="text-mist mx-1.5">·</span>
+          <a href={site.socials.twitter} target="_blank" rel="noopener noreferrer">twitter</a>
+          <span class="text-mist mx-1.5">·</span>
+          <a href={`mailto:${site.socials.email}`}>email</a>
+        </p>
+      </div>
     </header>
 
     <!-- Bio -->
