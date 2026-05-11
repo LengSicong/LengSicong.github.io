@@ -19,45 +19,29 @@ const linkOrder: Array<{ key: keyof NonNullable<Publication['links']>; label: st
 const links = linkOrder
   .map((l) => ({ ...l, href: pub.links?.[l.key] }))
   .filter((l): l is { key: keyof NonNullable<Publication['links']>; label: string; href: string } => Boolean(l.href));
+
+const primaryHref = pub.links?.paper ?? pub.links?.project ?? pub.links?.code;
+const badgeText = pub.badges?.length ? ` (${pub.badges.join(', ')})` : '';
 ---
 
-<article
-  class="group relative rounded-xl border border-border bg-bone/40 hover:bg-bone hover:border-clay/40 hover:shadow-sm transition-all p-5 sm:p-6"
->
-  <h3 class="font-serif text-lg sm:text-xl leading-snug text-charcoal">
-    {pub.title}
+<article>
+  <h3 class="text-charcoal">
+    {primaryHref ? <a href={primaryHref} target="_blank" rel="noopener noreferrer">{pub.title}</a> : pub.title}
   </h3>
-
-  <p
-    class="mt-2 text-sm leading-relaxed text-mist [&_strong]:text-graphite [&_strong]:font-semibold"
-    set:html={authorsHtml}
-  />
-
-  <div class="mt-3 flex flex-wrap items-center gap-2">
-    <span class="font-mono text-xs uppercase tracking-wider text-graphite">
-      {pub.venue} {pub.year}
-    </span>
-    {
-      pub.badges?.map((b) => (
-        <span class="pill-clay font-mono uppercase tracking-wider">{b}</span>
-      ))
-    }
-  </div>
-
+  <p class="text-mist mt-1 text-[15px]" set:html={authorsHtml} />
+  <p class="text-mist mt-1 text-[15px]">
+    {pub.venue} {pub.year}{badgeText}
+  </p>
   {
     links.length > 0 && (
-      <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-        {links.map((l) => (
-          <a
-            href={l.href}
-            class="font-mono text-xs uppercase tracking-wider text-clay hover:text-sienna transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            [{l.label}]
-          </a>
+      <p class="mt-2 text-[15px]">
+        {links.map((l, i) => (
+          <>
+            {i > 0 && <span class="text-mist mx-1.5">·</span>}
+            <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+          </>
         ))}
-      </div>
+      </p>
     )
   }
 </article>

@@ -15,41 +15,38 @@
   }
 
   body {
-    @apply bg-ivory text-charcoal font-sans antialiased;
-    font-feature-settings: 'ss01', 'cv11';
+    @apply bg-ivory text-charcoal font-serif;
+    font-feature-settings: 'kern', 'liga', 'onum';
+    font-size: 17px;
+    line-height: 1.6;
   }
 
   ::selection {
-    @apply bg-clay/30 text-charcoal;
+    background-color: rgba(188, 75, 47, 0.18);
   }
 
   a {
-    @apply transition-colors duration-150;
+    color: theme('colors.clay');
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2.5px;
+    text-decoration-color: color-mix(in srgb, theme('colors.clay') 28%, transparent);
+    transition: text-decoration-color 150ms ease;
   }
-}
-
-@layer components {
-  .link-clay {
-    @apply text-clay hover:text-sienna underline decoration-clay/40 hover:decoration-sienna/70 underline-offset-2;
-  }
-
-  .pill {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
+  a:hover {
+    text-decoration-color: theme('colors.clay');
   }
 
-  .pill-clay {
-    @apply pill bg-clay/10 text-sienna border-clay/30;
+  strong {
+    @apply font-semibold text-charcoal;
   }
 
-  .pill-sand {
-    @apply pill bg-sand/15 text-graphite border-sand/40;
+  h1, h2, h3 {
+    @apply font-normal text-charcoal;
+    letter-spacing: -0.012em;
   }
 
-  .pill-mist {
-    @apply pill bg-bone text-mist border-border;
-  }
-
-  .section-divider {
-    @apply h-px w-12 bg-clay/60;
+  ul, ol {
+    list-style: none;
   }
 }

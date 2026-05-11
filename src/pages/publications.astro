@@ -1,10 +1,8 @@
 ---
 import Base from '@/layouts/Base.astro';
-import SectionHeading from '@/components/SectionHeading.astro';
 import PublicationCard from '@/components/PublicationCard.astro';
 import { publications, scholarUrl } from '@/data/publications';
 
-// Group by year, descending
 const byYear = new Map<number, typeof publications>();
 for (const pub of publications) {
   if (!byYear.has(pub.year)) byYear.set(pub.year, []);
@@ -14,40 +12,27 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
 ---
 
 <Base title="Publications" description="Publications by Sicong Leng.">
-  <section class="mx-auto max-w-wide px-6 sm:px-8 md:px-12 py-20 sm:py-24">
-    <SectionHeading
-      eyebrow="Research"
-      title="Publications"
-      class="mb-12"
-    />
+  <main class="mx-auto max-w-column px-6 sm:px-8 pt-16 sm:pt-20 pb-24">
+    <p class="mb-10">
+      <a href="/">← Home</a>
+    </p>
 
-    <p class="mb-12 text-graphite leading-relaxed">
-      For the latest list, see my
-      <a href={scholarUrl} class="link-clay" target="_blank" rel="noopener noreferrer">
-        Google Scholar
-      </a>.
+    <h1 class="text-3xl sm:text-4xl tracking-tight mb-3">Publications</h1>
+    <p class="text-mist mb-12">
+      For the most up-to-date list, see <a href={scholarUrl} target="_blank" rel="noopener noreferrer">Google Scholar</a>.
     </p>
 
     <div class="space-y-14">
       {
         years.map((year) => (
           <section>
-            <h2 class="font-serif text-3xl text-charcoal mb-6">{year}</h2>
-            <div class="space-y-5">
+            <h2 class="text-xl mb-6 tabular-nums">{year}</h2>
+            <div class="space-y-7">
               {byYear.get(year)!.map((pub) => <PublicationCard pub={pub} />)}
             </div>
           </section>
         ))
       }
     </div>
-
-    <div class="mt-16">
-      <a
-        href="/"
-        class="font-mono text-xs uppercase tracking-[0.2em] text-clay hover:text-sienna transition-colors"
-      >
-        ← Back home
-      </a>
-    </div>
-  </section>
+  </main>
 </Base>

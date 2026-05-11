@@ -8,40 +8,24 @@ interface Props {
 
 const { initialCount = 8 } = Astro.props;
 
-function formatDate(d: string): { month: string; year: string } {
+function fmt(d: string): string {
   const [y, m] = d.split('-');
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  return { month: months[Number(m) - 1] ?? m, year: y };
+  return `${months[Number(m) - 1] ?? m} ${y}`;
 }
 
-const items = news.map((item) => ({
-  ...item,
-  formatted: formatDate(item.date),
-  html: renderInline(item.body),
-}));
-
+const items = news.map((n) => ({ date: fmt(n.date), html: renderInline(n.body) }));
 const visible = items.slice(0, initialCount);
 const hidden = items.slice(initialCount);
 ---
 
-<ol class="relative space-y-6">
+<ol class="space-y-3">
   {
     visible.map((item) => (
-      <li class="flex gap-5 items-start">
-        <div class="flex-shrink-0 w-16 sm:w-20 pt-0.5 text-right">
-          <div class="font-mono text-xs uppercase tracking-wider text-clay">
-            {item.formatted.month}
-          </div>
-          <div class="font-mono text-xs text-mist">{item.formatted.year}</div>
-        </div>
-        <div
-          class:list={[
-            'flex-1 leading-relaxed text-base text-graphite',
-            '[&_a]:link-clay [&_strong]:text-charcoal',
-            item.highlight && 'border-l-2 border-clay/60 pl-4',
-          ]}
-          set:html={item.html}
-        />
+      <li>
+        <span class="text-mist tabular-nums">{item.date}</span>
+        <span class="mx-1 text-mist">·</span>
+        <span set:html={item.html} />
       </li>
     ))
   }
@@ -49,35 +33,24 @@ const hidden = items.slice(initialCount);
   {
     hidden.length > 0 && (
       <>
-        <li id="news-rest" class="hidden space-y-6">
-          <ul class="space-y-6">
-            {hidden.map((item) => (
-              <li class="flex gap-5 items-start">
-                <div class="flex-shrink-0 w-16 sm:w-20 pt-0.5 text-right">
-                  <div class="font-mono text-xs uppercase tracking-wider text-clay">
-                    {item.formatted.month}
-                  </div>
-                  <div class="font-mono text-xs text-mist">{item.formatted.year}</div>
-                </div>
-                <div
-                  class:list={[
-                    'flex-1 leading-relaxed text-base text-graphite',
-                    '[&_a]:link-clay [&_strong]:text-charcoal',
-                    item.highlight && 'border-l-2 border-clay/60 pl-4',
-                  ]}
-                  set:html={item.html}
-                />
-              </li>
-            ))}
-          </ul>
+        <li id="news-rest" hidden class="space-y-3 !mt-3">
+          {hidden.map((item) => (
+            <div>
+              <span class="text-mist tabular-nums">{item.date}</span>
+              <span class="mx-1 text-mist">·</span>
+              <span set:html={item.html} />
+            </div>
+          ))}
         </li>
-        <li class="pt-2">
+        <li class="!mt-6">
           <button
             type="button"
             id="news-toggle"
-            class="font-mono text-xs uppercase tracking-[0.2em] text-clay hover:text-sienna transition-colors"
+            data-more={`Show ${hidden.length} more`}
+            data-less="Show less"
+            class="text-clay"
           >
-            Show {hidden.length} more →
+            Show {hidden.length} more
           </button>
         </li>
       </>
@@ -93,9 +66,8 @@ const hidden = items.slice(initialCount);
     let open = false;
     btn.addEventListener('click', () => {
       open = !open;
-      rest.classList.toggle('hidden', !open);
-      btn.textContent = open ? 'Show less ↑' : btn.dataset.more ?? btn.textContent;
+      rest.hidden = !open;
+      btn.textContent = open ? btn.dataset.less : btn.dataset.more;
     });
-    btn.dataset.more = btn.textContent ?? '';
   })();
 </script>
