@@ -26,12 +26,11 @@ export const work: WorkItem[] = [
   },
   {
     role: 'Research Assistant',
-    org: 'StatNLP Lab, Singapore University of Technology and Design',
-    orgUrl: 'https://statnlp-research.github.io/',
+    org: 'StatNLP Lab, SUTD',
     period: 'Aug 2021 – Aug 2023',
     description: 'Research on NLP and multi-modal learning.',
     supervisors: [
-      { name: 'Prof. Lu Wei', url: 'https://istd.sutd.edu.sg/people/faculty/lu-wei/' },
+      { name: 'Prof. Lu Wei', url: 'https://luwei.name/' },
     ],
   },
 ];
