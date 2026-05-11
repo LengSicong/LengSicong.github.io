@@ -86,14 +86,19 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
               </p>
               <p class="text-mist text-[15px] tabular-nums">{w.period}</p>
               {w.description && <p class="mt-1.5">{w.description}</p>}
-              {w.supervisor && (
+              {w.supervisors && w.supervisors.length > 0 && (
                 <p class="mt-1 text-[15px] text-mist">
-                  Supervisor:{' '}
-                  {w.supervisorUrl ? (
-                    <a href={w.supervisorUrl} target="_blank" rel="noopener noreferrer">{w.supervisor}</a>
-                  ) : (
-                    w.supervisor
-                  )}
+                  {w.supervisors.length > 1 ? 'Supervisors' : 'Supervisor'}:{' '}
+                  {w.supervisors.map((s, i) => (
+                    <>
+                      {i > 0 && ', '}
+                      {s.url ? (
+                        <a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+                      ) : (
+                        s.name
+                      )}
+                    </>
+                  ))}
                 </p>
               )}
             </div>
