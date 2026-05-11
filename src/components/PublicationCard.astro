@@ -38,7 +38,7 @@ const badgeText = pub.badges?.length ? ` (${pub.badges.join(', ')})` : '';
         {links.map((l, i) => (
           <>
             {i > 0 && <span class="text-mist mx-1.5">·</span>}
-            <a href={l.href} target="_blank" rel="noopener noreferrer">[{l.label}]</a>
+            <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
           </>
         ))}
       </p>
