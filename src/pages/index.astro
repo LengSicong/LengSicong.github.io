@@ -59,14 +59,12 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
 
     <!-- News -->
     <section class="mb-20 sm:mb-24">
-      <div class="h-px w-10 bg-clay mx-auto mb-6" aria-hidden="true"></div>
       <h2 class="text-2xl font-semibold mb-7">News</h2>
       <NewsTimeline initialCount={8} />
     </section>
 
     <!-- Selected Publications -->
     <section class="mb-20 sm:mb-24">
-      <div class="h-px w-10 bg-clay mx-auto mb-6" aria-hidden="true"></div>
       <h2 class="text-2xl font-semibold mb-7">Selected publications</h2>
       <div class="space-y-7">
         {featuredPubs.map((pub) => <PublicationCard pub={pub} />)}
@@ -78,7 +76,6 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
 
     <!-- Experience -->
     <section class="mb-20 sm:mb-24">
-      <div class="h-px w-10 bg-clay mx-auto mb-6" aria-hidden="true"></div>
       <h2 class="text-2xl font-semibold mb-7">Experience</h2>
       <div class="space-y-7">
         {
@@ -112,7 +109,6 @@ const bioParagraphs = site.bio.map((p) => renderInline(p));
 
     <!-- Off the clock -->
     <section class="mb-20 sm:mb-24">
-      <div class="h-px w-10 bg-clay mx-auto mb-6" aria-hidden="true"></div>
       <h2 class="text-2xl font-semibold mb-7">Off the clock</h2>
       <p>
         {site.hobbies.map((h, i) => (
