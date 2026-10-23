@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#faf9f7"/>
+  <rect width="64" height="64" rx="14" fill="#f5f2eb"/>
   <text
     x="50%"
     y="50%"
     text-anchor="middle"
     dominant-baseline="central"
-    font-family="Fraunces, Georgia, serif"
+    font-family="Inter, Arial, sans-serif"
     font-weight="600"
     font-size="34"
     fill="#181818"
     letter-spacing="-1"
-  >SL</text>
-  <circle cx="50" cy="50" r="4" fill="#cc785c"/>
+  >sl</text>
+  <circle cx="49" cy="44" r="4" fill="#76b900"/>
 </svg>

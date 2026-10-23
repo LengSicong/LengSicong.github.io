@@ -14,23 +14,30 @@ export type WorkItem = {
 
 export const work: WorkItem[] = [
   {
-    role: 'Research Intern',
-    org: 'Embodied Intelligence Team, Alibaba DAMO Academy',
-    period: '2024 – Present',
+    role: "Robotic Research",
+    org: "NVIDIA GEAR",
+    orgUrl: "https://research.nvidia.com/labs/gear/",
+    period: "May 2026 – Present",
     description:
-      'Research on embodied foundation models and multimodal reasoning, contributing to RynnBrain, RynnVLA-001, MMR1, and the VideoLLaMA series.',
+      "Building GR00T through robotics data engines and embodied reasoning.",
+  },
+  {
+    role: "Embodied Intern",
+    org: "Alibaba DAMO Academy",
+    period: "Aug 2023 – May 2026",
+    description:
+      "Multimodal models and robot learning: VideoLLaMA, MMR1, RynnVLA, and RynnBrain. Alibaba Talent Program.",
     supervisors: [
-      { name: 'Xin Li', url: 'https://lixin4ever.github.io/' },
-      { name: 'Deli Zhao', url: 'https://zhaodeli.github.io/' },
+      { name: "Xin Li", url: "https://lixin4ever.github.io/" },
+      { name: "Deli Zhao", url: "https://zhaodeli.github.io/" },
     ],
   },
   {
-    role: 'Research Assistant',
-    org: 'StatNLP Lab, SUTD',
-    period: 'Aug 2021 – Aug 2023',
-    description: 'Research on NLP and multi-modal learning.',
-    supervisors: [
-      { name: 'Prof. Lu Wei', url: 'https://luwei.name/' },
-    ],
+    role: "Research Officer",
+    org: "StatNLP Lab, SUTD",
+    period: "Sep 2021 – Aug 2023",
+    description:
+      "NLP and multimodal learning, including language-guided floor plan generation with Tell2Design.",
+    supervisors: [{ name: "Prof. Lu Wei", url: "https://luwei.name/" }],
   },
 ];

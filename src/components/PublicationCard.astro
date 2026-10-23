@@ -1,47 +1,42 @@
 ---
-import type { Publication } from '@/data/publications';
-import { renderInline } from '@/lib/markdown-lite';
-
+import type { Publication } from "@/data/publications";
+import { renderInline } from "@/lib/markdown-lite";
 interface Props {
   pub: Publication;
+  compact?: boolean;
 }
-
-const { pub } = Astro.props;
-const authorsHtml = renderInline(pub.authors);
-
-const linkOrder: Array<{ key: keyof NonNullable<Publication['links']>; label: string }> = [
-  { key: 'paper', label: 'paper' },
-  { key: 'code', label: 'code' },
-  { key: 'project', label: 'project' },
-  { key: 'data', label: 'data' },
-  { key: 'model', label: 'model' },
-];
-const links = linkOrder
-  .map((l) => ({ ...l, href: pub.links?.[l.key] }))
-  .filter((l): l is { key: keyof NonNullable<Publication['links']>; label: string; href: string } => Boolean(l.href));
-
-const primaryHref = pub.links?.paper ?? pub.links?.project ?? pub.links?.code;
-const badgeText = pub.badges?.length ? ` (${pub.badges.join(', ')})` : '';
+const { pub, compact = false } = Astro.props;
+const href = pub.links?.paper ?? pub.links?.project ?? pub.links?.code;
 ---
 
-<article>
-  <h3 class="text-charcoal">
-    {primaryHref ? <a href={primaryHref} target="_blank" rel="noopener noreferrer">{pub.title}</a> : pub.title}
-  </h3>
-  <p class="text-mist mt-1 text-[15px]" set:html={authorsHtml} />
-  <p class="text-mist mt-1 text-[15px]">
-    {pub.venue} {pub.year}{badgeText}
+<article class:list={["publication", { "publication-compact": compact }]}>
+  <p class="publication-venue">
+    {pub.venue}
+    {pub.year}{pub.badges?.length ? ` · ${pub.badges.join(" · ")}` : ""}
   </p>
+  <h3>
+    {
+      href ? (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          {pub.title}
+        </a>
+      ) : (
+        pub.title
+      )
+    }
+  </h3>
   {
-    links.length > 0 && (
-      <p class="mt-2 text-[15px]">
-        {links.map((l, i) => (
-          <>
-            {i > 0 && <span class="text-mist mx-1.5">·</span>}
-            <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
-          </>
-        ))}
-      </p>
+    !compact && (
+      <p class="publication-authors" set:html={renderInline(pub.authors)} />
     )
   }
+  <div class="publication-links">
+    {
+      Object.entries(pub.links ?? {}).map(([label, url]) => (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {label} <span aria-hidden="true">↗</span>
+        </a>
+      ))
+    }
+  </div>
 </article>

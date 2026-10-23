@@ -1,69 +1,33 @@
-# CLAUDE.md
+# Homepage development
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Personal academic homepage for Sicong Leng. Astro 4 + Tailwind CSS 3; fully static output. The production deployment is GitHub Pages at https://lengsicong.github.io/.
 
-## What this repo is
+## Commands
 
-Personal academic homepage for Sicong Leng, deployed at https://lengsicong.github.io/. Built with **Astro 4 + Tailwind CSS 3** (no React/Vue/etc — Astro's own component syntax). Output is fully static, deployed to GitHub Pages via the workflow in `.github/workflows/deploy.yml` on every push to `master`.
+Use Node 20+ and npm 9.6.5+.
 
-The previous Jekyll/academicpages incarnation lives on the `legacy-jekyll` branch and can be referenced for content history.
+- `npm ci`
+- `npm run dev` — local preview
+- `npm run astro -- check` — type and template diagnostics
+- `npm run build` — production build in `dist/`
+- `SITE_BASE=/unique-review-slug/ npm run build` — isolated static review build
 
-## Local commands
+Pushes to `master` trigger `.github/workflows/deploy.yml`. The previous Jekyll site remains on `legacy-jekyll`.
 
-```bash
-npm install
-npm run dev       # http://localhost:4321 with HMR
-npm run build     # static output to ./dist (this is what GitHub Actions runs)
-npm run preview   # serve the built dist/ locally to verify the production build
-```
+## Content
 
-Node 20+. The deploy workflow pins Node 20 — match it locally to catch CI parity issues early.
+- `src/data/site.ts`: identity, biography, contacts, last update date.
+- `src/data/experience.ts`: experience. Do not invent dates to fill gaps.
+- `src/data/publications.ts`: publications. The two entries with `featured: true` receive large homepage features: Flora, then RynnBrain 1.1. Vesta appears in the compact selected-work list in `src/pages/index.astro`; Scholar remains the complete list.
+- `src/data/news.ts`: updates, newest first.
+- `docs/refresh-2026-10.md`: source evidence, including owner-confirmed LinkedIn titles and dates.
 
-## Architecture
+Use the existing inline Markdown renderer for authored prose; it escapes HTML. Keep full author order in the data. Do not add claims about conference acceptance or contributions without source evidence.
 
-**Content is data, not Markdown files.** All site content lives as typed TypeScript in `src/data/`:
+## Presentation
 
-| File | Owns |
-|---|---|
-| `src/data/site.ts` | name, tagline, bio paragraph, affiliation, socials |
-| `src/data/news.ts` | news timeline (newest first) |
-| `src/data/publications.ts` | publications (with `featured` flag controlling home-page inclusion) |
-| `src/data/awards.ts` | conference awards |
-| `src/data/experience.ts` | work experience + service (reviewer/PC) |
+The October 2026 design follows Flora's light release theme: warm paper, restrained green, Inter, IBM Plex Mono, and thin dividers. `src/styles/global.css` owns responsive layout and tokens. `ResearchFeature.astro` embeds the official release videos as local H.264/AAC MP4s in `public/videos/`, with posters in `public/images/`. Preserve their full content and audio; native controls and `preload="none"` keep playback user-initiated. LinkedIn leads the hero links, prose is concise, and Jim Fan's original quote is retained. News and author disclosures use native `details`; no client framework is needed.
 
-This was a deliberate choice over Astro content collections — the site has a small fixed set of types and editing a `.ts` array is faster than authoring frontmatter.
+Use `withBase` from `src/lib/paths.ts` for internal routes and static assets, so the same site works under review subpaths. Canonical links continue to point at production.
 
-**Inline markdown for prose fields.** `news[].body`, `publications[].authors`, and `site.bio` accept a minimal subset rendered by `src/lib/markdown-lite.ts`:
-- `**bold**` → `<strong>`
-- `[text](url)` → `<a class="link-clay" ...>`
-- `\*` → literal `*` (used in author lists for equal-contribution markers; the backslash protects them from the `**bold**` regex)
-- `\n` → `<br/>`
-- Everything else is HTML-escaped
-
-When a component renders one of these, it uses Astro's `set:html={renderInline(value)}` directive. Do not bypass the renderer — it does the escaping.
-
-**Pages**: `src/pages/index.astro` is the single long-scroll home (Hero → About → News → Selected Pubs → Awards → Service → Experience). `src/pages/publications.astro` is the full list grouped by year. `src/layouts/Base.astro` provides `<head>` (SEO, OG, fonts) and the global Footer; the index page sets `showNav={false}` because it has a custom inline sticky nav that appears after the hero.
-
-**Styling**: Tailwind utility classes throughout. The Anthropic-inspired palette (`ivory`, `bone`, `charcoal`, `graphite`, `mist`, `border`, `clay`, `sienna`, `sand`) is defined in `tailwind.config.mjs` `theme.extend.colors`. A handful of component-level utilities (`.link-clay`, `.pill-clay`, `.section-divider`, etc.) live in `src/styles/global.css` under `@layer components`.
-
-**Fonts**: Loaded from Google Fonts in `Base.astro` — Fraunces (serif, used for hero name + section titles), Inter (sans, body), JetBrains Mono (mono, eyebrows/labels/dates).
-
-## Common edits
-
-- **Add a publication**: prepend to the array in `src/data/publications.ts`. Set `featured: true` to surface on the home page. Mark equal-contribution authors with `\*`; mark yourself with `**Sicong Leng**`.
-- **Add news**: prepend to `src/data/news.ts`. Set `highlight: true` to add a clay-colored left border (use sparingly for awards/orals).
-- **Change hero copy**: `src/data/site.ts` `tagline` (supports `\n` for line break) and `affiliation`. The visual structure lives in `src/components/Hero.astro`.
-- **Recolor**: edit `tailwind.config.mjs` `theme.extend.colors`. A full rebuild picks it up; dev mode HMRs automatically.
-- **Reorder home sections**: edit `src/pages/index.astro` — each `<section>` is independent.
-
-## Deployment
-
-GitHub Pages source must be set to **"GitHub Actions"** (Settings → Pages → Source). The workflow at `.github/workflows/deploy.yml` runs `npm ci && npm run build`, uploads `./dist` as the Pages artifact, and deploys. The `master` branch is the only deploy trigger.
-
-If a deploy ever fails and the site is down, the `legacy-jekyll` branch is a complete pre-redesign snapshot — Pages source can be temporarily pointed at it as a rollback.
-
-## Things not to do
-
-- Don't reintroduce a Markdown-content workflow for news/publications without removing the data files first — having both would split sources of truth.
-- Don't add a React/Vue/Solid integration unless a section genuinely needs reactivity; current site is intentionally zero-JS apart from one tiny `is:inline` script for the news "Show more" toggle.
-- Don't commit `node_modules/`, `dist/`, or `.astro/` — `.gitignore` already excludes them.
+Do not commit `node_modules/`, `dist/`, `.astro/`, credentials, or private source records. Review bundles contain only the built, inspected static site.

@@ -1,73 +1,48 @@
 ---
-import { news } from '@/data/news';
-import { renderInline } from '@/lib/markdown-lite';
-
+import { news } from "@/data/news";
+import { renderInline } from "@/lib/markdown-lite";
 interface Props {
   initialCount?: number;
 }
-
-const { initialCount = 8 } = Astro.props;
-
-function fmt(d: string): string {
-  const [y, m] = d.split('-');
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  return `${months[Number(m) - 1] ?? m} ${y}`;
-}
-
-const items = news.map((n) => ({ date: fmt(n.date), html: renderInline(n.body) }));
-const visible = items.slice(0, initialCount);
-const hidden = items.slice(initialCount);
+const { initialCount = 4 } = Astro.props;
+const fmt = (v: string) =>
+  new Date(`${v}-01T12:00:00Z`).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 ---
 
-<ol class="space-y-3">
-  {
-    visible.map((item) => (
-      <li>
-        <span class="text-mist tabular-nums">{item.date}</span>
-        <span class="mx-1 text-mist">·</span>
-        <span set:html={item.html} />
-      </li>
-    ))
-  }
-
-  {
-    hidden.length > 0 && (
-      <>
-        <li id="news-rest" hidden class="space-y-3 !mt-3">
-          {hidden.map((item) => (
-            <div>
-              <span class="text-mist tabular-nums">{item.date}</span>
-              <span class="mx-1 text-mist">·</span>
-              <span set:html={item.html} />
-            </div>
-          ))}
+<div class="news-timeline">
+  <ol class="news-list">
+    {
+      news.slice(0, initialCount).map((item) => (
+        <li>
+          <>
+            <time datetime={item.date}>{fmt(item.date)}</time>
+            <p set:html={renderInline(item.body)} />
+          </>
         </li>
-        <li class="!mt-6">
-          <button
-            type="button"
-            id="news-toggle"
-            data-more={`Show ${hidden.length} more`}
-            data-less="Show less"
-            class="text-clay"
-          >
-            Show {hidden.length} more
-          </button>
-        </li>
-      </>
+      ))
+    }
+  </ol>
+  {
+    news.length > initialCount && (
+      <details class="news-archive">
+        <>
+          <summary>
+            More updates <span aria-hidden="true">+</span>
+          </summary>
+          <ol class="news-list">
+            {news.slice(initialCount).map((item) => (
+              <li>
+                <time datetime={item.date}>{fmt(item.date)}</time>
+                <p set:html={renderInline(item.body)} />
+              </li>
+            ))}
+          </ol>
+        </>
+      </details>
     )
   }
-</ol>
-
-<script is:inline>
-  (() => {
-    const btn = document.getElementById('news-toggle');
-    const rest = document.getElementById('news-rest');
-    if (!btn || !rest) return;
-    let open = false;
-    btn.addEventListener('click', () => {
-      open = !open;
-      rest.hidden = !open;
-      btn.textContent = open ? btn.dataset.less : btn.dataset.more;
-    });
-  })();
-</script>
+</div>

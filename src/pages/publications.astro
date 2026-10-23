@@ -1,38 +1,44 @@
 ---
-import Base from '@/layouts/Base.astro';
-import PublicationCard from '@/components/PublicationCard.astro';
-import { publications, scholarUrl } from '@/data/publications';
-
-const byYear = new Map<number, typeof publications>();
-for (const pub of publications) {
-  if (!byYear.has(pub.year)) byYear.set(pub.year, []);
-  byYear.get(pub.year)!.push(pub);
-}
-const years = [...byYear.keys()].sort((a, b) => b - a);
+import Base from "@/layouts/Base.astro";
+import PublicationCard from "@/components/PublicationCard.astro";
+import { publications, scholarUrl } from "@/data/publications";
+import { withBase } from "@/lib/paths";
+const years = [...new Set(publications.map((p) => p.year))].sort(
+  (a, b) => b - a,
+);
 ---
 
-<Base title="Publications" description="Publications by Sicong Leng.">
-  <main class="mx-auto max-w-column px-6 sm:px-8 pt-16 sm:pt-20 pb-24">
-    <p class="mb-10">
-      <a href="/">← Home</a>
+<Base
+  title="Publications"
+  description="Selected publications and research projects by Sicong Leng."
+>
+  <main id="main" class="page-width archive-page">
+    <a class="text-link" href={withBase()}>← Back home</a><p class="eyebrow">
+      Research archive
+    </p><h1>Publications</h1>
+    <p class="archive-intro">
+      A selection of papers and open projects. For the complete and most
+      up-to-date list, see <a
+        href={scholarUrl}
+        target="_blank"
+        rel="noopener noreferrer">Google Scholar ↗</a
+      >.
     </p>
-
-    <h1 class="text-3xl sm:text-4xl tracking-tight mb-3">Publications</h1>
-    <p class="text-mist mb-12">
-      For the most up-to-date list, see <a href={scholarUrl} target="_blank" rel="noopener noreferrer">Google Scholar</a>.
-    </p>
-
-    <div class="space-y-14">
-      {
-        years.map((year) => (
-          <section>
-            <h2 class="text-2xl font-semibold mb-7 tabular-nums">{year}</h2>
-            <div class="space-y-7">
-              {byYear.get(year)!.map((pub) => <PublicationCard pub={pub} />)}
+    {
+      years.map((year) => (
+        <section class="archive-year">
+          <>
+            <h2>{year}</h2>
+            <div>
+              {publications
+                .filter((p) => p.year === year)
+                .map((pub) => (
+                  <PublicationCard pub={pub} />
+                ))}
             </div>
-          </section>
-        ))
-      }
-    </div>
+          </>
+        </section>
+      ))
+    }
   </main>
 </Base>

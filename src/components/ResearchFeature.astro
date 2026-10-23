@@ -1,0 +1,67 @@
+---
+import type { Publication } from "@/data/publications";
+import { renderInline } from "@/lib/markdown-lite";
+import { withBase } from "@/lib/paths";
+interface Props {
+  pub: Publication;
+}
+const { pub } = Astro.props;
+const links = Object.entries(pub.links ?? {});
+const names: Record<string, string> = {
+  paper: "Paper",
+  project: "Project",
+  code: "Code",
+  data: "Data",
+  model: "Models",
+};
+---
+
+<article class="research-feature" id={pub.key}>
+  {
+    pub.video && (
+      <video
+        class="research-video"
+        controls
+        playsinline
+        preload="none"
+        poster={withBase(pub.video.poster)}
+        aria-label={`${pub.shortTitle} release video`}
+      >
+        <source src={withBase(pub.video.src)} type="video/mp4" />
+        <a href={withBase(pub.video.src)}>
+          Watch the {pub.shortTitle} release video
+        </a>
+      </video>
+    )
+  }
+  <div class="research-copy">
+    <p class="project-meta"><span>{pub.topic}</span><span>{pub.year}</span></p>
+    <h3>
+      <a
+        href={pub.links?.paper ?? pub.links?.project}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={pub.title}>{pub.shortTitle}</a
+      >
+    </h3>
+    <p class="project-impact">{pub.impact}</p>
+    <p class="project-summary">{pub.summary}</p>
+    <div class="project-credit">
+      <span>{pub.contribution}</span><span aria-hidden="true">·</span><span
+        >{pub.venue} {pub.year}</span
+      >
+      <details class="author-details">
+        <summary>All authors</summary><p set:html={renderInline(pub.authors)} />
+      </details>
+    </div>
+    <div class="project-links">
+      {
+        links.map(([key, href]) => (
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {names[key]} <span aria-hidden="true">↗</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</article>

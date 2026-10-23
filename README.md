@@ -31,16 +31,22 @@ Almost all site content lives in `src/data/` as plain TypeScript — no CMS, no 
 
 The `body` of news items and the `authors` of publications support a tiny inline-markdown subset: `**bold**`, `[text](url)`, and `\*` for a literal asterisk (used for equal-contribution markers).
 
-To add a new publication, prepend an entry to `publications`. Set `featured: true` to show it on the home page; all entries appear on `/publications/`.
+To add a new publication, prepend an entry to `publications`. The two `featured: true` entries (RynnBrain 1.1 and Flora) are the primary homepage projects; Vesta appears below in the compact list, and all entries appear on `/publications/`. Keep the homepage curated and link to Scholar for the full list.
 
-To add news, prepend to `news`. The newest 8 items are visible by default; the rest are behind a "Show N more" toggle.
+To add news, prepend to `news`. The newest 4 items are visible by default; the rest are behind a "Show N more" toggle.
 
 ## Visual customization
 
-- **Colors** — `tailwind.config.mjs` `theme.extend.colors` (Anthropic-inspired warm palette: `ivory`, `bone`, `charcoal`, `clay`, `sienna`, `sand`).
-- **Fonts** — `tailwind.config.mjs` `fontFamily` + the Google Fonts `<link>` in `src/layouts/Base.astro`.
-- **Hero copy** — `src/data/site.ts` `tagline` + structure in `src/components/Hero.astro`.
-- **Section ordering** — `src/pages/index.astro` (each section is a self-contained block).
+The current design takes its warm background, restrained green accents, and clean typography from the Flora release pages.
+
+- Layout and palette: `src/styles/global.css`.
+- Fonts and navigation: `src/layouts/Base.astro`.
+- Homepage sections: `src/pages/index.astro`.
+- Featured research: `src/components/ResearchFeature.astro`; local release videos in `public/videos/` and posters in `public/images/`.
+- Use `withBase()` for local routes and assets. `SITE_BASE=/unique-review-slug/ npm run build` creates an isolated review build; normal builds use `/`.
+- Author and news disclosures use native HTML, with no client-side JavaScript.
+
+Content sources and outstanding experience dates are documented in `docs/refresh-2026-10.md`.
 
 ## Assets
 

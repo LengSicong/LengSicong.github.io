@@ -1,132 +1,226 @@
 ---
-import Base from '@/layouts/Base.astro';
-import NewsTimeline from '@/components/NewsTimeline.astro';
-import PublicationCard from '@/components/PublicationCard.astro';
-import { site } from '@/data/site';
-import { publications, scholarUrl } from '@/data/publications';
-import { work } from '@/data/experience';
-import { renderInline } from '@/lib/markdown-lite';
-
-const featuredPubs = publications.filter((p) => p.featured);
-const bioParagraphs = site.bio.map((p) => renderInline(p));
+import Base from "@/layouts/Base.astro";
+import NewsTimeline from "@/components/NewsTimeline.astro";
+import ResearchFeature from "@/components/ResearchFeature.astro";
+import PublicationCard from "@/components/PublicationCard.astro";
+import { site } from "@/data/site";
+import { publications, scholarUrl } from "@/data/publications";
+import { work } from "@/data/experience";
+import { renderInline } from "@/lib/markdown-lite";
+import { withBase } from "@/lib/paths";
+const featureOrder = ["flora", "rynnbrain"];
+const featured = publications
+  .filter((p) => p.featured)
+  .sort((a, b) => featureOrder.indexOf(a.key!) - featureOrder.indexOf(b.key!));
+const earlier = publications.filter((p) =>
+  /^(Vesta:|MMR1:|VideoLLaMA [23]:|Mitigating Object Hallucinations)/.test(
+    p.title,
+  ),
+);
 ---
 
 <Base>
-  <main class="mx-auto max-w-column px-6 sm:px-8 pt-16 sm:pt-24 pb-24">
-
-    <!-- Hero -->
-    <header class="mb-24 sm:mb-32 sm:grid sm:grid-cols-[1fr_auto] sm:gap-10 sm:items-start">
-      <img
-        src="/images/profile.jpg"
-        alt={`Portrait of ${site.name}`}
-        width="128"
-        height="128"
-        loading="eager"
-        decoding="async"
-        class="mb-8 sm:mb-0 sm:order-2 h-24 w-24 sm:h-32 sm:w-32 rounded-lg object-cover"
-      />
-
-      <div>
-        <h1 class="text-4xl sm:text-5xl leading-[1.05] tracking-tight">
-          Sicong Leng
-          <span class="text-mist text-[0.5em] align-baseline ml-1">冷思聪</span>
-        </h1>
-
-        <p class="mt-6 text-xl sm:text-2xl leading-snug text-charcoal whitespace-pre-line">
-          {site.tagline}
+  <main id="main">
+    <section class="hero page-width" id="about" aria-labelledby="name">
+      <div class="hero-copy">
+        <p class="eyebrow hero-identity">
+          <span class="status-dot" aria-hidden="true"></span><span
+            >PhD @ NTU</span
+          >
+          <span class="eyebrow-divider" aria-hidden="true">/</span>
+          <span class="hero-role">Robotic Research @ NVIDIA GEAR</span>
         </p>
-
-        <p class="mt-5 text-mist">
-          {site.affiliation}
+        <h1 id="name">Sicong Leng<span lang="zh">冷思聪</span></h1>
+        <p class="hero-statement">
+          Towards generalist intelligence for the <em>physical world.</em>
         </p>
-
-        <p class="mt-6">
-          <a href={site.socials.github} target="_blank" rel="noopener noreferrer">github</a>
-          <span class="text-mist mx-1.5">·</span>
-          <a href={site.socials.scholar} target="_blank" rel="noopener noreferrer">google scholar</a>
-          <span class="text-mist mx-1.5">·</span>
-          <a href={site.socials.twitter} target="_blank" rel="noopener noreferrer">twitter</a>
-          <span class="text-mist mx-1.5">·</span>
-          <a href={`mailto:${site.socials.email}`}>email</a>
+        <div class="hero-bio">
+          <p set:html={renderInline(site.bio[0])} />
+          <p class="research-direction">{site.researchVision}</p>
+        </div>
+        <div class="social-links" aria-label="Find me online">
+          <a
+            href={site.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn <span aria-hidden="true">↗</span></a
+          >
+          <a href={scholarUrl} target="_blank" rel="noopener noreferrer"
+            >Scholar <span aria-hidden="true">↗</span></a
+          >
+          <a
+            href={site.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub <span aria-hidden="true">↗</span></a
+          >
+          <a
+            href={site.socials.twitter}
+            target="_blank"
+            rel="noopener noreferrer">X <span aria-hidden="true">↗</span></a
+          >
+          <a class="contact-button" href={`mailto:${site.socials.email}`}
+            >Email <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </div>
+      <figure class="portrait">
+        <img
+          src={withBase("images/profile.jpg")}
+          alt="Sicong Leng"
+          width="280"
+          height="340"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption>
+          <span class="tiny-cross" aria-hidden="true">+</span> Multimodal & embodied
+          intelligence
+        </figcaption>
+      </figure>
+    </section>
+    <section
+      class="research-section page-width"
+      id="research"
+      aria-labelledby="research-title"
+    >
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow section-number">01 / Research</p><h2
+            id="research-title"
+          >
+            Selected work
+          </h2>
+        </div>
+        <p class="section-aside research-theme">{site.researchTheme}</p>
+      </div>
+      <div class="research-list">
+        {featured.map((pub) => <ResearchFeature pub={pub} />)}
+      </div>
+      <div class="earlier-work">
+        <div class="subsection-heading">
+          <h3>More selected work</h3><a
+            class="text-link"
+            href={withBase("publications/")}
+            >Publication archive <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="earlier-grid">
+          {earlier.map((pub) => <PublicationCard pub={pub} compact />)}
+        </div>
+        <p class="scholar-note">
+          For the full publication list, visit <a
+            href={scholarUrl}
+            target="_blank"
+            rel="noopener noreferrer">Google Scholar ↗</a
+          >.
         </p>
       </div>
-    </header>
-
-    <!-- Bio -->
-    <section class="space-y-4 mb-20 sm:mb-24">
-      {bioParagraphs.map((html) => <p set:html={html} />)}
     </section>
-
-    <!-- News -->
-    <section class="mb-20 sm:mb-24">
-      <h2 class="text-2xl font-semibold mb-7">News</h2>
-      <NewsTimeline initialCount={8} />
-    </section>
-
-    <!-- Selected Publications -->
-    <section class="mb-20 sm:mb-24">
-      <h2 class="text-2xl font-semibold mb-7">Selected publications</h2>
-      <div class="space-y-7">
-        {featuredPubs.map((pub) => <PublicationCard pub={pub} />)}
-      </div>
-      <p class="mt-8">
-        <a href={scholarUrl} target="_blank" rel="noopener noreferrer">All publications at Google Scholar →</a>
-      </p>
-    </section>
-
-    <!-- Experience -->
-    <section class="mb-20 sm:mb-24">
-      <h2 class="text-2xl font-semibold mb-7">Experience</h2>
-      <div class="space-y-7">
-        {
-          work.map((w) => (
-            <div>
-              <p class="text-charcoal">
-                {w.role}, {w.orgUrl ? <a href={w.orgUrl} target="_blank" rel="noopener noreferrer">{w.org}</a> : w.org}
-              </p>
-              <p class="text-mist text-[15px] tabular-nums">{w.period}</p>
-              {w.description && <p class="mt-1.5">{w.description}</p>}
-              {w.supervisors && w.supervisors.length > 0 && (
-                <p class="mt-1 text-[15px] text-mist">
-                  {w.supervisors.length > 1 ? 'Supervisors' : 'Supervisor'}:{' '}
-                  {w.supervisors.map((s, i) => (
-                    <>
-                      {i > 0 && ', '}
-                      {s.url ? (
-                        <a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
-                      ) : (
-                        s.name
-                      )}
-                    </>
-                  ))}
-                </p>
-              )}
-            </div>
-          ))
-        }
+    <section class="updates-band" id="news" aria-labelledby="news-title">
+      <div class="page-width updates-grid">
+        <div>
+          <p class="eyebrow section-number">02 / Updates</p><h2 id="news-title">
+            Recently
+          </h2><p class="section-aside">New work and open releases.</p>
+        </div>
+        <NewsTimeline initialCount={3} />
       </div>
     </section>
-
-    <!-- Off the clock -->
-    <section class="mb-20 sm:mb-24">
-      <h2 class="text-2xl font-semibold mb-7">Off the clock</h2>
-      <p>
-        {site.hobbies.map((h, i) => (
-          <>
-            {i > 0 && <span class="text-mist mx-1.5">·</span>}
-            <span class="mr-1.5">{h.emoji}</span>{h.name.toLowerCase()}
-          </>
-        ))}.
-      </p>
+    <section
+      class="experience-section page-width"
+      id="experience"
+      aria-labelledby="experience-title"
+    >
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow section-number">03 / Background</p><h2
+            id="experience-title"
+          >
+            Along the way
+          </h2>
+        </div>
+      </div>
+      <div class="background-grid">
+        <div class="education-block">
+          <p class="eyebrow">Education</p>
+          <h3>Nanyang Technological<br />University</h3>
+          <p class="education-degree">PhD · Fourth year</p>
+          <p>
+            Advised by <a
+              href="https://personal.ntu.edu.sg/shijian.lu/"
+              target="_blank"
+              rel="noopener noreferrer">Prof. Shijian Lu</a
+            >.
+          </p>
+          <p class="personal-note">
+            Away from research: badminton, singing, and games.
+          </p>
+        </div>
+        <div class="experience-list">
+          {
+            work.map((w) => (
+              <article class="experience-item">
+                <p class="experience-period">{w.period}</p>
+                <div>
+                  <h3>
+                    {w.orgUrl ? (
+                      <a
+                        href={w.orgUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {w.org}
+                      </a>
+                    ) : (
+                      w.org
+                    )}
+                  </h3>
+                  <>
+                    <p class="experience-role">{w.role}</p>
+                    <p class="experience-description">{w.description}</p>
+                  </>
+                  {w.supervisors && (
+                    <p class="supervisors">
+                      With{" "}
+                      {w.supervisors.map((s, i) => (
+                        <>
+                          {i > 0 && ", "}
+                          {s.url ? (
+                            <a
+                              href={s.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {s.name}
+                            </a>
+                          ) : (
+                            s.name
+                          )}
+                        </>
+                      ))}
+                    </p>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
     </section>
-
-    <!-- Closing quote -->
-    <aside class="mt-32 pt-10 border-t border-border">
-      <blockquote class="text-lg sm:text-xl italic leading-snug text-charcoal">
-        “{site.mission.quote}”
-      </blockquote>
-      <p class="mt-4 text-mist">— {site.mission.attribution}</p>
-    </aside>
-
+    <figure class="mission-quote page-width">
+      <blockquote><p>“{site.mission.quote}”</p></blockquote>
+      <figcaption>— {site.mission.attribution}</figcaption>
+    </figure>
+    <section
+      class="contact-section page-width"
+      id="contact"
+      aria-labelledby="contact-title"
+    >
+      <h2 id="contact-title">Let's connect.</h2>
+      <a class="email-link" href={`mailto:${site.socials.email}`}
+        >{site.socials.email} <span aria-hidden="true">↗</span></a
+      >
+    </section>
   </main>
 </Base>
