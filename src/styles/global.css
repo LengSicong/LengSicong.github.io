@@ -568,10 +568,6 @@ details summary {
 .education-block .education-degree {
   color: var(--accent) !important;
 }
-.education-block .personal-note {
-  margin-top: 32px !important;
-  max-width: 26ch;
-}
 .experience-item {
   display: grid;
   grid-template-columns: 94px minmax(0, 1fr);
@@ -633,6 +629,12 @@ details summary {
   margin-top: 16px;
   line-height: 1.18;
   font-weight: 500;
+}
+.contact-section .personal-note {
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
 }
 .email-link {
   display: inline-block;
@@ -907,10 +909,6 @@ details summary {
   .education-block {
     padding-bottom: 25px;
     border-bottom: 1px solid var(--line);
-  }
-  .education-block .personal-note {
-    max-width: none;
-    margin-top: 16px !important;
   }
   .experience-item {
     grid-template-columns: 1fr;
