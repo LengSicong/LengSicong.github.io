@@ -20,6 +20,7 @@ export const work: WorkItem[] = [
     period: "May 2026 – Present",
     description:
       "Building GR00T through robotics data engines and embodied reasoning.",
+    supervisors: [{ name: "Jim Fan", url: "https://jimfan.me/" }],
   },
   {
     role: "Embodied Intern",
