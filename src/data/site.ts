@@ -6,7 +6,7 @@ export const site = {
   description:
     "Sicong Leng — fourth-year PhD student at NTU and researcher at NVIDIA GEAR, working on embodied intelligence, multimodal models, and robotics data engines.",
   url: "https://lengsicong.github.io",
-  lastUpdated: "2026-10-23",
+  lastUpdated: "2026-11-03",
 
   tagline: "Towards generalist intelligence for the physical world.",
   researchVision:
@@ -16,7 +16,7 @@ export const site = {
   location: "Singapore",
 
   bio: [
-    `I'm a **fourth-year PhD student** at [NTU](https://www.ntu.edu.sg/), advised by [Prof. Shijian Lu](https://personal.ntu.edu.sg/shijian.lu/), and work on robotics at [NVIDIA GEAR](https://research.nvidia.com/labs/gear/).`,
+    `I'm a **fourth-year PhD student** at [NTU](https://www.ntu.edu.sg/), advised by [Prof. Shijian Lu](https://personal.ntu.edu.sg/shijian.lu/), and work on robotics at [NVIDIA GEAR](https://research.nvidia.com/labs/gear/) with [Jim Fan](https://jimfan.me/).`,
     `My research connects **multimodal understanding, embodied reasoning, and learning from video**. Recent work includes Flora, a robotics data engine; RynnBrain 1.1, an embodied foundation model; and Vesta, a generalist embodied reasoning model.`,
     `Previously, I worked with the Embodied Intelligence team at Alibaba DAMO Academy and the StatNLP Lab at SUTD.`,
   ],
